@@ -1,0 +1,21 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de consultores</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	Lista de consultores:
+	<table>
+		<th:block th:each="con : ${listaConsult}">
+			<tr>
+				<td th:text="${con.username}"></td>
+				<td th:text="${con.nombre}"></td>
+				<td th:text="${con.password}"></td>
+	
+			</tr>
+		</th:block>	
+	</table> 
+</body>
+</html>

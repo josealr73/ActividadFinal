@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Lista de admins</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+	Lista de admins:
+	<table>
+		<th:block th:each="ad : ${listAdmin}">
+			<tr>
+				<td th:text="${ad.username}"></td>
+				<td th:text="${ad.nombre}"></td>
+				<td th:text="${ad.password}"></td>
+			</tr>
+		</th:block>	
+	</table>
+</body>
+</html>

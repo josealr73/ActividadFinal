@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta charset="UTF-8">
+	<title>Alumnos</title>
+</head>
+
+<body>
+	<h5 th:inline="text">Hola</h5>
+	
+	<b>INICIO: </b>Página de principal<b>APP</b>.
+	<ul> MENÚ:
+		<li th:if="${usuario.rol.rol == 'ADMIN'}"><a href="/app/listaDeAsignaturas">Asignaturas</a></li>
+		<li th:if="${usuario.rol.rol == 'ADMIN'}"><a href="/app/listaDeAdmin">Admin</a></li>
+		<li th:if="${usuario.rol.rol == 'CONSULTA'}"><a href="/app/listaDeConsult">Consultores</a></li>
+		<li> <a href="/app/h2-console">h2-console</a></li>
+	</ul>
+</body>
+</html>
