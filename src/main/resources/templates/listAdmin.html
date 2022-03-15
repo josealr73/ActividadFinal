@@ -7,8 +7,8 @@
 <body>
 
 	Lista de admins:
-	<table>
-		<th:block th:each="ad : ${listAdmin}">
+	<table border='1'>
+		<th:block th:each="ad : ${listaAdmin}">
 			<tr>
 				<td th:text="${ad.username}"></td>
 				<td th:text="${ad.nombre}"></td>

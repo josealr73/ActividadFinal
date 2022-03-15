@@ -7,10 +7,9 @@
 <body>
 
 	Lista de asignaturas:
-	<table>
-		<th:block th:each="asign : ${listAsignaturas}">
+	<table border='1'>
+		<th:block th:each="asign : ${listaAsignaturas}">
 			<tr>
-				<td th:text="${asign.id}"></td>
 				<td th:text="${asign.nombre}"></td>
 				<td th:text="${asign.descripcion}"></td>
 				<td th:text="${asign.curso}"></td>

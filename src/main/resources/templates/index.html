@@ -6,7 +6,8 @@
 </head>
 
 <body>
-	<h5 th:inline="text">Hola</h5>
+	<h5 th:inline="text">Hola '[[${usuario.nombre}]]'  ([[${usuario.username}]]), 
+	tu rol es [[${usuario.rol.rol}]]. </h5>
 	
 	<b>INICIO: </b>Página de principal<b>APP</b>.
 	<ul> MENÚ:

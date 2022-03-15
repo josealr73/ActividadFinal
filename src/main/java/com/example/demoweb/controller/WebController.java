@@ -1,6 +1,9 @@
 package com.example.demoweb.controller;
 
+import org.slf4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +15,7 @@ import com.example.demoweb.service.UsuarioService;
 
 @Controller
 public class WebController {
+	private static Logger LOG = org.slf4j.LoggerFactory.getLogger(WebController.class);
 	
 	@Autowired
 	AsignaturasService asignaturaService;	
@@ -27,8 +31,8 @@ public class WebController {
 		return "index";
 	}
 	
-	//@PreAuthorize("hasRole('ROLE_ADMIN')")
 	@GetMapping("/listaDeAsignaturas")
+	@Cacheable (value="usuario")
 	public String listAsignaturas(Model m) {
 		m.addAttribute("listaAsignaturas", asignaturaService.listAll());
 		return "listAsignaturas";

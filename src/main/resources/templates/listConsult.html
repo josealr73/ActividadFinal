@@ -7,7 +7,7 @@
 <body>
 
 	Lista de consultores:
-	<table>
+	<table border='1'>
 		<th:block th:each="con : ${listaConsult}">
 			<tr>
 				<td th:text="${con.username}"></td>
@@ -16,6 +16,6 @@
 	
 			</tr>
 		</th:block>	
-	</table> 
+	</table>
 </body>
 </html>

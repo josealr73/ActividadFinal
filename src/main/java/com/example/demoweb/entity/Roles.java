@@ -36,6 +36,6 @@ public class Roles implements GrantedAuthority{
 	@Override
 	public String getAuthority() {
 		// TODO Auto-generated method stub
-		return ("ROL_" + this.rol).toUpperCase();
+		return ("ROL_"+this.rol).toUpperCase();
 	}
 }
