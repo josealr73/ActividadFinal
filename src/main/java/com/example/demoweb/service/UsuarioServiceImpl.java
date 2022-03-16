@@ -44,4 +44,37 @@ public class UsuarioServiceImpl implements UsuarioService, UserDetailsService {
 		
 	}
 
+	@Override
+	public List<Usuario> consultarTodos() {
+		// TODO Auto-generated method stub
+		return usuarioRepo.findAll();
+	}
+	
+	@Override
+	public Usuario insertar(Usuario u) {
+		// TODO Auto-generated method stub
+		return usuarioRepo.save(u);
+	}
+	
+	@Override
+	public Usuario modificar(Usuario u) {
+		return usuarioRepo.save(u);
+	}
+
+	
+	@Override
+	public void eliminarTodos() {
+		usuarioRepo.deleteAll();
+	}
+	
+	@Override
+	public void eliminarPorId(String user) {
+		usuarioRepo.deleteById(user);
+	}
+	
+	@Override
+	public Usuario consultarPorID(String user) {
+		// TODO Auto-generated method stub
+		return usuarioRepo.findById(user).orElse(null);
+	}
 }

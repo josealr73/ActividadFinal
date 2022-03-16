@@ -15,9 +15,9 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 @EnableGlobalMethodSecurity (prePostEnabled = true)
 public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter {
 	@Autowired
-	UserDetailsService usuarioService;
+	private UserDetailsService usuarioService;
 	
-	String[] resources = new String[] { "/include/**", "/js/**", "/css/**"};
+	String[] resources = new String[] { "/include/**", "/js/**", "/css/**", "/api/**"};
 	
 	public BCryptPasswordEncoder passwordEncoder( ) {
 		return new BCryptPasswordEncoder();
