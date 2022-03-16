@@ -22,16 +22,56 @@ public class AsignaturasServiceImpl implements AsignaturasService{
 
 
 	@Override
-	public List<Usuario> listAdmin() {
+	public List<Asignaturas> listAdmin() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 
 	@Override
-	public List<Usuario> listConsultas() {
+	public List<Asignaturas> listConsultas() {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	@Override
+	public Asignaturas consultarPorID(Integer id) {
+		// TODO Auto-generated method stub
+		return asignaturasRepo.findById(id).orElse(null);
+	}
+
+
+	@Override
+	public void eliminarTodos() {
+		// TODO Auto-generated method stub
+		asignaturasRepo.deleteAll();
+	}
+
+
+	@Override
+	public void eliminarPorId(Integer id) {
+		// TODO Auto-generated method stub
+		asignaturasRepo.deleteById(id);
+	}
+
+
+	@Override
+	public Asignaturas modificar(Asignaturas a) {
+		// TODO Auto-generated method stub
+		return asignaturasRepo.save(a);
+	}
+
+
+	@Override
+	public Asignaturas insertar(Asignaturas a) {
+		// TODO Auto-generated method stub
+		return asignaturasRepo.save(a);
+	}
+
+
+
+
+
 
 }

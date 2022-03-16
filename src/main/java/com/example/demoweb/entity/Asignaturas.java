@@ -2,6 +2,8 @@ package com.example.demoweb.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
@@ -21,12 +23,12 @@ public class Asignaturas {
 	@Column
 	private Integer curso;
 
-	public Integer getNumber() {
+	public Integer getId() {
 		return id;
 	}
 
-	public void setNumber(Integer number) {
-		this.id = number;
+	public void setId(Integer id) {
+		this.id = id;
 	}
 
 	public String getNombre() {

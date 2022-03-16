@@ -7,6 +7,11 @@ import com.example.demoweb.entity.Usuario;
 
 public interface AsignaturasService {
 	List<Asignaturas> listAll();
-	List<Usuario> listAdmin();
-	List<Usuario> listConsultas();
+	List<Asignaturas> listAdmin();
+	List<Asignaturas> listConsultas();
+	Asignaturas consultarPorID(Integer id);
+	void eliminarTodos();
+	void eliminarPorId(Integer id);
+	Asignaturas modificar(Asignaturas a);
+	Asignaturas insertar(Asignaturas a);
 }

@@ -52,15 +52,28 @@ public class UsuariosRestController {
 	
 	@PostMapping
 	@CacheEvict (value="usuarios", allEntries=true)
-	public void insertarUsuario (@RequestBody Usuario u) {
-		usuarioService.insertar(u);
+	public ResponseEntity<Usuario> insertarUsuario (@RequestBody Usuario u) {
+		HttpHeaders headers = new HttpHeaders();
+		
+		try {
+			if(u.getUsername() == "" || u == null) {
+				headers.set("Message", "Usuario nulo");
+				return new ResponseEntity<> (null, HttpStatus.NOT_ACCEPTABLE);
+			}else {
+				usuarioService.insertar(u);
+				return new ResponseEntity<> (u, HttpStatus.OK);
+			}
+		}catch(Exception e) {
+			
+		}
+		return new ResponseEntity<> (u, headers, HttpStatus.CREATED);
 	}
-
 	
 	@DeleteMapping ()
 	@CacheEvict (value="usuarios", allEntries=true)
 	public void eliminarTodosUser() {
 		usuarioService.eliminarTodos();
+		
 	}
 	
 	
@@ -68,11 +81,17 @@ public class UsuariosRestController {
 	@CacheEvict (value="usuarios", allEntries=true)
 	public void eliminarUserPorId(@PathVariable("username") String user) {
 		usuarioService.eliminarPorId(user);
+	
 	}
 	
 	@PutMapping
 	@CacheEvict (value="usuarios", allEntries=true)
-	public Usuario modificarUsuario(@RequestBody Usuario u) {
-		return usuarioService.modificar(u);
+	public ResponseEntity<Usuario> modificarUsuario(@RequestBody Usuario u) {
+		usuarioService.modificar(u);
+		if(u == null) {
+			return new ResponseEntity<> (null, HttpStatus.NOT_FOUND);
+		}else {
+			return new ResponseEntity<> (u, HttpStatus.OK);
+		}
 	}
 }
