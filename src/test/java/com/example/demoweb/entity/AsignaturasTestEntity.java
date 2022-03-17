@@ -31,7 +31,6 @@ class AsignaturasTestEntity {
 		a2.setCurso(2);
 	
 		assertEquals(a1, a2, "Son iguales");
-	
 	}
 	
 	@Test
@@ -63,5 +62,14 @@ class AsignaturasTestEntity {
 		assertEquals(a1, a1, "Mismo objeto");
 	}
 	
-	
+	@Test
+	void idNull() {
+		Asignaturas a1 = new Asignaturas();
+		a1.setId(null);
+		a1.setNombre("Conocimiento");
+		a1.setDescripcion("Si");
+		a1.setCurso(1);
+		
+		assertNull(a1.getId(), "Id nulo");
+	}
 }
