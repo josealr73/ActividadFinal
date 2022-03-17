@@ -21,4 +21,4 @@ insert into usuario (username, nombre, password, rol_id)
 
 insert into usuario (username, nombre, password, rol_id)
  select 'user', 'Alumno Jose', '$2a$10$5xOe75pbLcAjp0TbVWaluunrSshgYdH82YNwGd.b0Os4hAWbIEkry', 2 from dual where not exists (select 1 from usuario where username = 'user');
-  
+ 
